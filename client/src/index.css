@@ -61,9 +61,17 @@ body {
   padding: 5px 10px;
   background-color: lightseagreen;
 }
-.save-button:hover {
+.save-button:hover, .updateButton:hover {
   background-color: green;
   color: white;
+}
+.updateButton {
+    position: absolute;
+  top: 75px;
+  right: 25px;
+  border: 1px solid grey;
+  padding: 5px 10px;
+  background-color: lightcoral;
 }
 
 .home-button {
