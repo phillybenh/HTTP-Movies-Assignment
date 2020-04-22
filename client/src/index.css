@@ -61,7 +61,7 @@ body {
   padding: 5px 10px;
   background-color: lightseagreen;
 }
-.save-button:hover, .updateButton:hover {
+.save-button:hover, .updateButton:hover, .deleteButton:hover {
   background-color: green;
   color: white;
 }
@@ -72,6 +72,14 @@ body {
   border: 1px solid grey;
   padding: 5px 10px;
   background-color: lightcoral;
+}
+.deleteButton {
+    position: absolute;
+  top: 125px;
+  right: 25px;
+  border: 1px solid grey;
+  padding: 5px 10px;
+  background-color: red;
 }
 .updateFormButton {
   margin-top: 10px;

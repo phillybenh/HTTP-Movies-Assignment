@@ -47,7 +47,8 @@ const UpdateForm = (props) => {
       .catch(err => console.log(err));
   };
   
-
+ 
+ 
   return (
     <div className="updateForm">
       <h2>Update Item</h2>
@@ -85,7 +86,7 @@ const UpdateForm = (props) => {
           value={movie.metascore}
         />
         <label htmlFor="star">Stars: </label>
-        {/* {movie.stars.map((star, index) => {
+        {movie.stars.map((star, index) => {
         //   console.log(star);
           return (
             <input
@@ -94,10 +95,10 @@ const UpdateForm = (props) => {
               name="star"
               onChange={changeHandler}
               placeholder="Star"
-              value={movie.stars[index]}
+              value={star}
             />
           );
-        })} */}
+        })}
         <button className="updateFormButton">Update</button>
       </form>
     </div>
