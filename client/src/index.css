@@ -73,6 +73,18 @@ body {
   padding: 5px 10px;
   background-color: lightcoral;
 }
+.updateFormButton {
+  margin-top: 10px;
+  border: 1px solid grey;
+  padding: 5px 10px;
+  background-color: lightcoral;
+}
+.updateForm {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
 
 .home-button {
   padding: 5px 10px;
