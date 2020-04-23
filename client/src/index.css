@@ -61,9 +61,37 @@ body {
   padding: 5px 10px;
   background-color: lightseagreen;
 }
-.save-button:hover {
+.save-button:hover, .updateButton:hover, .deleteButton:hover {
   background-color: green;
   color: white;
+}
+.updateButton {
+    position: absolute;
+  top: 75px;
+  right: 25px;
+  border: 1px solid grey;
+  padding: 5px 10px;
+  background-color: lightcoral;
+}
+.deleteButton {
+    position: absolute;
+  top: 125px;
+  right: 25px;
+  border: 1px solid grey;
+  padding: 5px 10px;
+  background-color: red;
+}
+.updateFormButton {
+  margin-top: 10px;
+  border: 1px solid grey;
+  padding: 5px 10px;
+  background-color: lightcoral;
+}
+.updateForm {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .home-button {
