@@ -7,13 +7,17 @@ const initialMovie = {
   title: "",
   director: "",
   metascore: "",
-  stars: [],
+  stars: "",
 };
+// const initialStars = {
+//   stars: ""
+// };
 const UpdateForm = (props) => {
   // console.log({ props });
 
   const { push } = useHistory();
   const [movie, setMovie] = useState(initialMovie);
+  // const [stars, setStars] = useState(initialStars);
   const { id } = useParams();
   //   console.log({id})
 
@@ -21,17 +25,24 @@ const UpdateForm = (props) => {
     axios
       .get(`http://localhost:5000/api/movies/${id}`)
       .then((res) => {
-        setMovie(res.data);
-        // console.log({ res });
+        //  setStars(res.data.stars.toString())
+        //  console.log({ stars });
+        // res.data.stars = stars;
+         setMovie(res.data);
+        console.log({ res });
       })
       .catch((err) => console.log(err));
   }, [id]);
 
   const changeHandler = (e) => {
     e.persist();
+    let value = e.target.value;
+    if (e.target.name === "stars") {
+      value = e.target.value.split(",");
+    }
     setMovie({
       ...movie,
-      [e.target.name]: e.target.value,
+      [e.target.name]: value,
     });
   };
 
@@ -39,16 +50,15 @@ const UpdateForm = (props) => {
     e.preventDefault();
     axios
       .put(`http://localhost:5000/api/movies/${id}`, movie)
-      .then(res => {
-          console.log(res)
-         props.setMovies([...props.movies, res.data]);
-        push('/');
+      .then((res) => {
+        console.log(res);
+        props.setMovies([...props.movies, res.data]);
+        push("/");
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   };
-  
- 
- 
+// console.log({movie})
+// console.log({stars})
   return (
     <div className="updateForm">
       <h2>Update Item</h2>
@@ -86,19 +96,19 @@ const UpdateForm = (props) => {
           value={movie.metascore}
         />
         <label htmlFor="star">Stars: </label>
-        {movie.stars.map((star, index) => {
-        //   console.log(star);
-          return (
-            <input
-              key={index}
-              type="text"
-              name="star"
-              onChange={changeHandler}
-              placeholder="Star"
-              value={star}
-            />
-          );
-        })}
+        {/* {movie.stars.map((star, index) => {
+          //   console.log(star);
+          return ( */}
+        <input
+          // key={index}
+          type="text"
+          name="stars"
+          onChange={changeHandler}
+          placeholder="Stars"
+          value={movie.stars}
+        />
+           {/* ); 
+           })}  */}
         <button className="updateFormButton">Update</button>
       </form>
     </div>
